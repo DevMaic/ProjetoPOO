@@ -6,6 +6,7 @@ package pedido;
 import java.time.LocalDate; // import the LocalDate class
 import restaurante.*;
 import usuario.*;
+import forma_pagamento.FormaPagamento;
 /**
  *
  * @author Amaro
@@ -22,10 +23,33 @@ public class Pedido {
     private StatusPedido statusPedido;
     private Restaurante restaurante;
     private Usuario usuario;
-    
-    // Um item ou vários itens?
     private ItemPedido item = new ItemPedido();
+    private FormaPagamento formaPagamento;
 
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDate dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public ItemPedido getItem() {
+        return item;
+    }
+
+    public void setItem(ItemPedido item) {
+        this.item = item;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+    
     public Restaurante getRestaurante() {
         return this.restaurante;
     }
@@ -72,14 +96,6 @@ public class Pedido {
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
-    }
-
-    public LocalDate getDataCiracao() {
-        return dataCriacao;
-    }
-
-    public void setDataCiracao(LocalDate dataCiracao) {
-        this.dataCriacao = dataCiracao;
     }
 
     public LocalDate getDataConfirmacao() {

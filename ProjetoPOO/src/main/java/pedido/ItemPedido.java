@@ -48,6 +48,10 @@ public class ItemPedido {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+
+    public Produto getProduto() {
+        return produto;
+    }
     
     public void setProduto(Produto p) {
         this.produto = p;

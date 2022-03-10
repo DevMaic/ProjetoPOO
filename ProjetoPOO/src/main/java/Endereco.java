@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+import cidade.Cidade;
 /**
  *
  * @author Amaro
@@ -13,6 +13,15 @@ public class Endereco {
     private String numero;
     private String complemento;
     private String bairro;
+    private Cidade cidade;
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
 
     public String getCep() {
         return cep;

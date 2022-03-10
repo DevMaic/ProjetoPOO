@@ -24,7 +24,21 @@ public class Restaurante {
     private LocalDate dataAtualizacao;
     private Cozinha cozinha;
     private Endereco endereco;
+    private Produto produto = new Produto();
 
+//    Dessa forma?
+//    ArrayList<Produto> produtos = new ArrayList<Produto>();
+//    ArrayList<FormaPagamento> formas = new ArrayList<FormaPagamento>();
+//    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+    
     public Endereco getEndereco() {
         return this.endereco;
     }
@@ -32,11 +46,6 @@ public class Restaurante {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
-    // Dessa forma?
-    ArrayList<Produto> produtos = new ArrayList<Produto>();
-    ArrayList<FormaPagamento> formas = new ArrayList<FormaPagamento>();
-    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
     public String getNome() {
         return nome;
