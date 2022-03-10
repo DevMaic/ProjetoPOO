@@ -6,3 +6,4 @@ como implementar as relações de multiplicidade?
 para fazer:
 implementar métodos q façam sentido no contexto dado.
 implementar uma interface em algum lugar(pedido dela).
+OI
