@@ -5,6 +5,10 @@
 package usuario;
 import java.time.LocalDate; // import the LocalDate class
 import grupo.Grupo;
+import pedido.*;
+import restaurante.*;
+import produto.*;
+
 /**
  *
  * @author Amaro
@@ -55,4 +59,13 @@ public class Usuario {
     public void setGrupo(Grupo g) {
         this.grupo = g;
     }
+
+    public Usuario(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.dataCadastro = LocalDate.now();
+        //this.grupo = grupo;
+    }
 }
+

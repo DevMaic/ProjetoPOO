@@ -54,4 +54,11 @@ public class Produto {
     public void setFotoProduto(FotoProduto fp) {
         this.fotoProduto = fp;
     }
+
+    @Override
+    public String toString() {
+        return "\nProduto{" + "nome=" + nome + "\n descricao=" + descricao + 
+                "\n preco=" + preco + "\n ativo=" + ativo + "\n fotoProduto=" 
+                + fotoProduto + '}' + "\n----------------------------\n";
+    }
 }

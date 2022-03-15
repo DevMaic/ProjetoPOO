@@ -1,3 +1,5 @@
+package util;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -9,7 +11,7 @@ import cidade.Cidade;
  */
 public class Endereco {
     private String cep;
-    private String logadouro;
+    private String logradouro;
     private String numero;
     private String complemento;
     private String bairro;
@@ -32,11 +34,11 @@ public class Endereco {
     }
 
     public String getLogadouro() {
-        return logadouro;
+        return logradouro;
     }
 
-    public void setLogadouro(String logadouro) {
-        this.logadouro = logadouro;
+    public void setLogadouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public String getNumero() {
@@ -62,4 +64,15 @@ public class Endereco {
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
+
+    public Endereco(String cep, String logradouro, String numero,
+            String complemento, String bairro, String cidade, String estado) {
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = new Cidade(cidade, estado);
+    }
+    
 }

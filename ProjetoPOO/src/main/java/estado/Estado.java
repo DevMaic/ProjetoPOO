@@ -18,5 +18,9 @@ public class Estado {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
+    public Estado(String nome) {
+        this.nome = nome;
+    }    
+
 }

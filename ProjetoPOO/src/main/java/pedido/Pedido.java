@@ -3,17 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package pedido;
+import util.Endereco;
 import java.time.LocalDate; // import the LocalDate class
 import restaurante.*;
 import usuario.*;
 import forma_pagamento.FormaPagamento;
+import produto.*;
+
 /**
  *
  * @author Amaro
  */
 public class Pedido {
+    private static final int QUANT_MAX_ITEM = 10;
     private String codigo;
-    private double subtotal;
+    private double subtotal = 0;
     private double taxaFrete;
     private double valorTotal;
     private LocalDate dataCriacao;
@@ -23,8 +27,10 @@ public class Pedido {
     private StatusPedido statusPedido;
     private Restaurante restaurante;
     private Usuario usuario;
-    private ItemPedido item = new ItemPedido();
+    private ItemPedido item[] = new ItemPedido[QUANT_MAX_ITEM];
+    private int posItem = 0;
     private FormaPagamento formaPagamento;
+    private Endereco enderecoEntrega;
 
     public LocalDate getDataCriacao() {
         return dataCriacao;
@@ -34,11 +40,11 @@ public class Pedido {
         this.dataCriacao = dataCriacao;
     }
 
-    public ItemPedido getItem() {
+    public ItemPedido[] getItem() {
         return item;
     }
 
-    public void setItem(ItemPedido item) {
+    public void setItem(ItemPedido[] item) {
         this.item = item;
     }
 
@@ -128,5 +134,38 @@ public class Pedido {
 
     public void setStatusPedido(StatusPedido sp) {
         this.statusPedido = sp;
+    }
+
+    public int getPosItem() {
+        return posItem;
+    }
+
+    public void setPosItem(int posItem) {
+        this.posItem = posItem;
+    }
+    
+    public Pedido(Restaurante R, Usuario U){        
+        this.usuario = U;
+        this.dataCriacao = LocalDate.now();
+        //P.setStatusPedido();
+        this.restaurante = R;
+    }
+    
+    public void addItem(String item, int quant, String obs){
+        int i;
+        
+        i = this.getRestaurante().encontrarProduto(item);
+        Produto prod[] = this.getRestaurante().getProdutos();
+            
+        if(i == -1){
+            System.out.println("Item não encontrado!" +
+                "confira se escreveu corretamente");
+        }
+        else{
+            this.item[this.getPosItem()] = new ItemPedido(quant, obs, prod[i]);
+            this.setSubtotal(this.getSubtotal() + 
+                    this.item[posItem].getPrecoTotal());
+            this.setPosItem(this.getPosItem()+1);
+        }
     }
 }

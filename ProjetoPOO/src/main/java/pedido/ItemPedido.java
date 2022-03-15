@@ -17,6 +17,16 @@ public class ItemPedido {
     private String observacao;
     private Produto produto;
 
+    public ItemPedido(int quantidade, String observacao, Produto produto) {
+        this.quantidade = quantidade;
+        this.observacao = observacao;
+        this.produto = produto;
+        this.precoUnitario = produto.getPreco();
+        this.precoTotal = this.quantidade * this.precoUnitario;
+    }
+
+
+
     public int getQuantidade() {
         return this.quantidade;
     }

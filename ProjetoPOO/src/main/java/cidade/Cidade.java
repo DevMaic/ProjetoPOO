@@ -28,5 +28,10 @@ public class Cidade {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Cidade(String nome, String estado) {
+        this.nome = nome;
+        this.estado = new Estado(estado);
+    }
     
 }
