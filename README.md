@@ -1,5 +1,5 @@
 ## Modelo UML do projeto
-<img width="400" alt="Modelo UML" title="#ModeloUML" src="./assets/Diagrama-UML.jpg" />
+<img alt="Modelo UML" title="#ModeloUML" src="./assets/Diagrama-UML.jpg" />
 
 ## Dúvidas
 - **Como usar a classe endereço, já que ela se encontra fora de qualquer pacote?**
