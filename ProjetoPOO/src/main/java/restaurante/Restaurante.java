@@ -6,10 +6,10 @@ package restaurante;
 import util.Endereco;
 import java.time.LocalDate; // import the LocalDate class
 import java.util.ArrayList;
+import java.util.Arrays;
 import cozinha.*;
 import produto.*;
 import forma_pagamento.*;
-import java.util.Arrays;
 import usuario.*;
 
 /**
@@ -18,20 +18,21 @@ import usuario.*;
  */
 public class Restaurante {
     private static final int QUANT_PRODUTOS = 10;
+
     private String nome;
     private double taxaFrete;
     private boolean ativo;
     private boolean aberto;
     private LocalDate dataCadastro;
     private LocalDate dataAtualizacao;
-    private Cozinha cozinha;
-    private Endereco endereco;
-    private Produto Produtos[] = new Produto[QUANT_PRODUTOS];
 
-//    Dessa forma?
-//    ArrayList<Produto> produtos = new ArrayList<Produto>();
+    private Cozinha cozinha;
+    private Produto Produtos[] = new Produto[QUANT_PRODUTOS];
+    private Endereco endereco;
+
 //    ArrayList<FormaPagamento> formas = new ArrayList<FormaPagamento>();
-//    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+//    ArrayList<Usuario> responsaveis = new ArrayList<Usuario>();
+//    ArrayList<Produto> produtos = new ArrayList<Produto>();
 
     public Produto[] getProdutos() {
         return Produtos;
@@ -57,7 +58,7 @@ public class Restaurante {
         this.nome = nome;
     }
         
-        public double getTaxaFrete() {
+    public double getTaxaFrete() {
         return taxaFrete;
     }
 
@@ -119,73 +120,59 @@ public class Restaurante {
                 bairro, cidade, estado);
     }
     
-   public void cadastrarProduto(String nome, String desc, float prec){
+    // Outros métodos
+    public void cadastrarProduto(String nome, String desc, float prec){
        boolean podeCadastrar = false;
        int i;
        
        for (i=0 ; i < QUANT_PRODUTOS; i++){
-           if(Produtos[i] == null){
+           if(this.Produtos[i] == null){
                podeCadastrar = true;
                break;
            }
        }
        
        if(podeCadastrar){
-           Produtos[i] = new Produto();
-           Produtos[i].setNome(nome);
-           Produtos[i].setDescricao(desc);
-           Produtos[i].setPreco(prec);
-           Produtos[i].setAtivo(true);
+           this.Produtos[i] = new Produto();
+           this.Produtos[i].setNome(nome);
+           this.Produtos[i].setDescricao(desc);
+           this.Produtos[i].setPreco(prec);
+           this.Produtos[i].setAtivo(true);
        }
        else{
-           System.out.println("Exedeu o limite de produtos!");
+           System.out.println("Excedeu o limite de produtos!");
        } 
    }
    
    public int encontrarProduto(String nome){
        for (int i=0 ; i < QUANT_PRODUTOS; i++){
-           if(this.Produtos[i]!= null)
+           if(this.Produtos[i] != null)
            {
-               if(this.Produtos[i].getNome().equals(nome)){
-               return i;
-               }
+                if(this.Produtos[i].getNome().equals(nome)){
+                    return i;
+                }
            }
        }
-       
        return -1;
    }
    
    public void ativarProduto(String nome){
-       int i;
-       boolean encontrado = false;
+       int i = encontrarProduto(nome);
        
-       i = encontrarProduto(nome);
-       if(i !=1){
-           encontrado = true;
-       }
-       
-       if(encontrado){
-           Produtos[i].setAtivo(true);
-       }
-       else{
-           System.out.println("Produto não encontrado. Confira o nome!");
+       if(i != -1){
+            this.Produtos[i].setAtivo(true);
+       } else {
+            System.out.println("Produto não encontrado. Confira o nome!");
        }
    }
    
    public void desativarProduto(String nome){
-       int i;
-       boolean encontrado = false;
+       int i = encontrarProduto(nome);
        
-       i = encontrarProduto(nome);
-       if(i !=1){
-           encontrado = true;
-       }
-       
-       if(encontrado){
-           Produtos[i].setAtivo(false);
-       }
-       else{
-           System.out.println("Produto não encontrado. Confira o nome!");
+       if(i != -1){
+            this.Produtos[i].setAtivo(false);
+       } else {
+            System.out.println("Produto não encontrado. Confira o nome!");
        }
    }
 

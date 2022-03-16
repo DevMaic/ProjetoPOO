@@ -17,6 +17,8 @@
 - **Como implementar as relações de multiplicidade?**
 
 
+- **O que é Aggregate Root?**
+
 
 ## Para fazer 
 ### Geral
