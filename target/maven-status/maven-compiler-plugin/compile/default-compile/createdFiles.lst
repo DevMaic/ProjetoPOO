@@ -1,0 +1,11 @@
+Projeto\Main.class
+pedido\StatusPedido.class
+cozinha\Cozinha.class
+grupo\Grupo.class
+usuario\Usuario.class
+produto\FotoProduto.class
+estado\Estado.class
+pedido\ItemPedido.class
+forma_pagamento\FormaPagamento.class
+cidade\Cidade.class
+produto\Produto.class
